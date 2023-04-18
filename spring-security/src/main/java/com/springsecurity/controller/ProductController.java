@@ -17,9 +17,6 @@ public class ProductController {
     @Autowired
     private ProductService service;
 
-	/*
-	 * @Autowired private AuthenticationManager authenticationManager;
-	 */
     @GetMapping("/welcome")
     public String welcome() {
         return "Welcome this endpoint is not secure";
@@ -40,6 +37,18 @@ public class ProductController {
     @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public Product getProductById(@PathVariable int id) {
         return service.getProduct(id);
+    }
+    
+    @GetMapping("/user")
+    @PreAuthorize("hasAuthority('ROLE_USER')")
+    public String user() {
+        return "Welcome User";
+    }
+    
+    @GetMapping("/admin")
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    public String admin() {
+        return "Welcome Admin";
     }
 
 }
