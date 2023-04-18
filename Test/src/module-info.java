@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * @author kisho
- *
- */
-module Test {
-}
